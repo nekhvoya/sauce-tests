@@ -39,5 +39,4 @@ export class HeaderComponent {
             expect(this.activeSortingOption(), "Default soerting option was incorrect").toHaveText(option);
         }
     }
-
 }

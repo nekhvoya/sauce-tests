@@ -2,10 +2,9 @@ import test from './base_test';
 import { User } from '../src/constants/users';
 
 test.describe('Checkout', () => {
-    test.beforeEach(async ({ context, page }) => {
-        await context.addCookies([{ name: 'session-username', value: User.STANDARD_USER.username, domain: 'www.saucedemo.com', path: '/' }]); 
-        await page.goto("https://www.saucedemo.com/inventory.html");
-        await page.waitForLoadState('networkidle');
+
+    test.beforeEach(async ({ inventoryPage }) => {
+        await inventoryPage.openAs(User.STANDARD_USER);
     });
 
     test('Logged in user is able to order first available item', async ({ inventoryPage, header, cartPage, checkoutInfoPage, checkoutSummaryPage, checkoutCompletePage }) => {  

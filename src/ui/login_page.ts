@@ -1,10 +1,15 @@
-import { Locator, Page} from "@playwright/test";
+import { BrowserContext, Page} from "@playwright/test";
 import { BasePage } from "./base_page";
 
 export class LoginPage extends BasePage {
     
-    constructor(page: Page) {
-        super(page, page.locator('[data-test=login-container]'), "Login");
+    constructor(context: BrowserContext, page: Page) {
+        super(context, page, page.locator('[data-test=login-container]'), "Login");
+    }
+
+    async open() {
+        await this.page.goto('/');
+        await this.page.waitForLoadState('networkidle');
     }
 
     async typeUsername(username: string) {

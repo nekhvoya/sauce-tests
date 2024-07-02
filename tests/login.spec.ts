@@ -3,9 +3,8 @@ import { User } from '../src/constants/users';
 
 test.describe('Login/logout', () => {
 
-    test.beforeEach(async ({ page }) => {
-        await page.goto('https://www.saucedemo.com/');
-        await page.waitForLoadState('networkidle');
+    test.beforeEach(async ({ loginPage }) => {
+        await loginPage.open();
     });
 
     test('Standard user is able to log in and logout', async ({ loginPage, inventoryPage, header }) => {  

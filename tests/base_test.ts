@@ -15,28 +15,28 @@ export default base.extend<{
     checkoutSummaryPage: CheckoutSummaryPage, 
     checkoutCompletePage: CheckoutCompletePage,
     header: HeaderComponent }>({
-  loginPage: async ({ page }, use) => {
-    const loginPage = new LoginPage(page);
+  loginPage: async ({ context, page }, use) => {
+    const loginPage = new LoginPage(context, page);
     await use(loginPage);
   },
-  inventoryPage: async ({ page }, use) => {
-    const inventoryPage = new InventoryPage(page);
+  inventoryPage: async ({ context, page }, use) => {
+    const inventoryPage = new InventoryPage(context, page);
     await use(inventoryPage);
   },
-  cartPage: async ({ page }, use) => {
-    const cartPage = new CartPage(page);
+  cartPage: async ({ context, page }, use) => {
+    const cartPage = new CartPage(context, page);
     await use(cartPage);
   },
-  checkoutInfoPage: async ({ page }, use) => {
-    const checkoutInfoPage = new CheckoutInfoPage(page);
+  checkoutInfoPage: async ({ context, page }, use) => {
+    const checkoutInfoPage = new CheckoutInfoPage(context, page);
     await use(checkoutInfoPage);
   },
-  checkoutSummaryPage: async ({ page }, use) => {
-    const checkoutSummaryPage = new CheckoutSummaryPage(page);
+  checkoutSummaryPage: async ({ context, page }, use) => {
+    const checkoutSummaryPage = new CheckoutSummaryPage(context, page);
     await use(checkoutSummaryPage);
   },
-  checkoutCompletePage: async ({ page }, use) => {
-    const checkoutCompletePage = new CheckoutCompletePage(page);
+  checkoutCompletePage: async ({ context, page }, use) => {
+    const checkoutCompletePage = new CheckoutCompletePage(context, page);
     await use(checkoutCompletePage);
   },
   header: async ({ page }, use) => {

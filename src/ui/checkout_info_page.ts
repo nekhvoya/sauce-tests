@@ -1,11 +1,11 @@
-import { Page } from "@playwright/test";
+import { BrowserContext, Page } from "@playwright/test";
 import { BasePage } from "./base_page";
 import { randomAlphaNumberic, randomNumberic } from "../utils/random";
 
 export class CheckoutInfoPage extends BasePage {
 
-    constructor(page: Page) {
-        super(page, page.locator('[data-test=checkout-info-container]'), "Checkout Info");
+    constructor(context: BrowserContext, page: Page) {
+        super(context, page, page.locator('[data-test=checkout-info-container]'), "Checkout Info");
     }
 
     async fillInRandomUser() {

@@ -1,11 +1,21 @@
-import { Page, expect } from "@playwright/test";
+import { BrowserContext, Page, expect } from "@playwright/test";
 import { InventoryItemContainer } from "./inventory_item_container";
 import { BasePage } from "./base_page";
 
 export class InventoryPage extends BasePage {
   
-    constructor(page: Page) {   
-        super(page, page.locator('[data-test=inventory-container]'), "Inventory");
+    constructor(context: BrowserContext, page: Page) {   
+        super(context, page, page.locator('[data-test=inventory-container]'), "Inventory");
+    }
+
+    async openAs(user) {
+        await this.context.addCookies([{ name: 'session-username', value: user.username, domain: 'www.saucedemo.com', path: '/' }]);
+        await this.open();
+    }
+
+    async open() {
+        await this.page.goto('/inventory.html');
+        await this.page.waitForLoadState('networkidle');
     }
 
     async items() {
