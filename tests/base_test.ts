@@ -47,7 +47,6 @@ export default base.extend<{
 
 export const globalHooks = () => {
   base.afterEach(async ({ page }, testInfo) => {
-    
     if (testInfo.status !== testInfo.expectedStatus) {
       const screenshotPath = testInfo.outputPath(`${testInfo.testId}.png`);
       testInfo.attachments.push({ name: 'screenshot', path: screenshotPath, contentType: 'image/png' });

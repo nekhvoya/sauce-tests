@@ -36,7 +36,7 @@ export class HeaderComponent {
 
     should = {
         haveDefaultSortingOption: (option) => {
-            expect(this.activeSortingOption(), "Default soerting option was incorrect").toHaveText(option);
+            expect(this.activeSortingOption(), "Default sorting option was incorrect").toHaveText(option);
         }
     }
 }
