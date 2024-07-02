@@ -1,11 +1,8 @@
 {
   "name": "sauce-demo-tests",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
+  "description": "Sauce Demo test automation",
+  "author": "Yuliya Novikova",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.45.0",
