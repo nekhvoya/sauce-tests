@@ -29,13 +29,11 @@ export class HeaderComponent {
     async setSorting(value: string) {
         await this.componentElement.locator('[data-test=product-sort-container]').selectOption({ value : value });
     }
-
     
     private activeSortingOption() {
         return this.componentElement.locator('[data-test=active-option]');
     }
 
-    
     should = {
         haveDefaultSortingOption: (option) => {
             expect(this.activeSortingOption(), "Default soerting option was incorrect").toHaveText(option);
