@@ -6,7 +6,7 @@ export default defineConfig({
     forbidOnly: !!process.env.CI,
     retries: 0,
     workers: process.env.CI ? 4 : undefined,
-    reporter: 'html',
+    reporter: [['html', { outputFolder: 'playwright-report/api' }]],
     use: {
         baseURL: 'https://reqres.in/'
     }

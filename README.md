@@ -18,35 +18,6 @@ Conditions:
 Note:
 ● Please list any assumptions you make for the given scenario.
 
-Task 2 - Test Automation: Let’s dive into some automated tests. Include your source-code during
-submission. The playing field is open when it comes to which tool you use, however if you’re
-comfortable with Playwright then it would be nice to use this to automate the test cases (API/
-Web) all the while keeping your implementation inline with the restrictions/ languages outlined
-below.
-Test Cases:
-● You’ll write 3 UI web tests.
-● You’ll write 3 API web tests.
-Rules:
-● UI tests via https://www.saucedemo.com.
-● API tests via https://reqres.in.
-● Provide a clear README for your automation solution.
-Tech:
-● Tool: [Your choice] OR [Playwright] Restriction: No “Record and Play” tools
-● Language (pick one): [C#] [Typescript] [ Javascript] [Java] [Python]
-Note:
-● Please list any assumptions you make for the given scenario.
-Bonus
-To have the tests up and running CI/CD
-environment of your choice. If you opt to undergo
-the Bonus please then be ready to share this
-implementation during the interview.
-
-What do we evaluate?
-- Ability to build architecture from scratch.
-- Testing and validation skills.
-- Codebase maintainability, repetition, and
-readability.
-
 
 
 # Sauce Demo tests
