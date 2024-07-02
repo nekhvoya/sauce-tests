@@ -18,13 +18,13 @@ export class UsersEndpoint {
         return this.request.post('/api/users', { data: userData });
     }
 
-    async getUserById(id) {
+    async getUserById(id: number) {
         const userById = await this.requestUserById(id);
         expect(userById.ok(), `Not able to get user by id ${id}, response ${await userById.status()}`).toBeTruthy();
         return await userById.json();
     }
 
-    requestUserById(id) {
+    requestUserById(id: number) {
         return this.request.get(`/api/users/${id}`);
     }
 
@@ -38,7 +38,7 @@ export class UsersEndpoint {
         return collectObjects(this.requestUsersPerPage.bind(this));
     }
 
-    requestUsersPerPage(pageNo) {
+    requestUsersPerPage(pageNo: number) {
         return this.request.get(`/api/users?page=${pageNo}`);
     }
 }

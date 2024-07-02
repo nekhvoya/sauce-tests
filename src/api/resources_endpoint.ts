@@ -18,7 +18,7 @@ export class ResourcesEndpoint {
         return collectObjects(this.requestResourcesPerPage.bind(this));
     }
 
-    requestResourcesPerPage(pageNo) {
+    requestResourcesPerPage(pageNo: number) {
         return this.request.get(`/api/unknown?page=${pageNo}`);
     }
 }
