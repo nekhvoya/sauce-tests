@@ -1,6 +1,6 @@
 import test, { globalHooks } from './base_test';
-import { User } from '../src/constants/users';
-import { Sorting } from '../src/constants/sorting';
+import { User } from '../../src/constants/users';
+import { Sorting } from '../../src/constants/sorting';
 
 globalHooks();
 

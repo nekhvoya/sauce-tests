@@ -1,11 +1,11 @@
 import { test as base } from '@playwright/test';
-import { LoginPage } from "../src/ui/login_page";
-import { HeaderComponent } from '../src/ui/header_component';
-import { InventoryPage } from '../src/ui/inventory_page';
-import { CartPage } from '../src/ui/cart_page';
-import { CheckoutInfoPage } from '../src/ui/checkout_info_page';
-import { CheckoutSummaryPage } from '../src/ui/checkout_summary_page';
-import { CheckoutCompletePage } from '../src/ui/checkout_complete_page';
+import { LoginPage } from "../../src/ui/login_page";
+import { HeaderComponent } from '../../src/ui/header_component';
+import { InventoryPage } from '../../src/ui/inventory_page';
+import { CartPage } from '../../src/ui/cart_page';
+import { CheckoutInfoPage } from '../../src/ui/checkout_info_page';
+import { CheckoutSummaryPage } from '../../src/ui/checkout_summary_page';
+import { CheckoutCompletePage } from '../../src/ui/checkout_complete_page';
 
 export default base.extend<{ 
     loginPage: LoginPage, 

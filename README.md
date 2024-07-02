@@ -88,3 +88,5 @@ After each run a Playwright report is generated. The report can be found in the 
 ### Assumptions made for this project: 
 1. When defining locators the preference was given to data-test attributes as such attributes are usually added to the elements specifically to use them for the ustomation testing
 2. Credentials used to authenticate with the websit are not sensitive data and for the simplicity were put in the source code unencrypted
+3. WEB UI and API belong to the same application (UI and API tests were put to the same project for simplicity)
+4. This is a basic set up created as a POC, which is why the automated scenarios could be any, as long as they illustrate the project set up and architecture.

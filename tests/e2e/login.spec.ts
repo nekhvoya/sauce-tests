@@ -1,5 +1,5 @@
 import test, { globalHooks } from './base_test';
-import { User } from '../src/constants/users';
+import { User } from '../../src/constants/users';
 
 globalHooks();
 
