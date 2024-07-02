@@ -9,6 +9,7 @@ export class LoginPage extends BasePage {
 
     async open() {
         await this.page.goto('/');
+        await this.page.waitForLoadState('domcontentloaded');
         await this.page.waitForLoadState('networkidle');
     }
 

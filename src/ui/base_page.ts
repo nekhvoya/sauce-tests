@@ -13,7 +13,7 @@ export class BasePage {
        this.pageName = pageName;
     }
 
-    isOpened() {
-        expect(this.pageElement, `${this.pageName} page should be opened`).toBeVisible();
+    async isOpened() {
+        await expect(this.pageElement, `${this.pageName} page should be opened`).toBeVisible();
     }
 }

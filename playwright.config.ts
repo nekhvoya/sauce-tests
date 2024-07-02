@@ -10,7 +10,6 @@ export default defineConfig({
   use: {
     baseURL: 'https://www.saucedemo.com/'
   },
-
   projects: [
     {
       name: 'chromium',

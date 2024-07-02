@@ -13,8 +13,8 @@ test.describe('Login/logout', () => {
         await loginPage.typeUsername(User.STANDARD_USER.username);
         await loginPage.typePassword(User.STANDARD_USER.password);
         await loginPage.clickLoginButton();
-        inventoryPage.isOpened();
+        await inventoryPage.isOpened();
         await header.logout();
-        loginPage.isOpened();
+        await loginPage.isOpened();
     })
 })

@@ -13,13 +13,13 @@ test.describe('Checkout', () => {
         await inventoryPage.should.haveItems();
         await (await inventoryPage.items())[0].clickAddToCartButton();
         await header.clickCartIcon();
-        cartPage.isOpened();
+        await cartPage.isOpened();
         await cartPage.clickCheckoutButton();
-        checkoutInfoPage.isOpened();
+        await checkoutInfoPage.isOpened();
         await checkoutInfoPage.fillInRandomUser();
         await checkoutInfoPage.clickContinueButton();
-        checkoutSummaryPage.isOpened();
+        await checkoutSummaryPage.isOpened();
         await checkoutSummaryPage.clickFinishButton();
-        checkoutCompletePage.isOpened();
+        await checkoutCompletePage.isOpened();
     });
 });
