@@ -1,5 +1,7 @@
-import test from './base_test';
+import test, { globalHooks } from './base_test';
 import { User } from '../src/constants/users';
+
+globalHooks();
 
 test.describe('Login/logout', () => {
 
