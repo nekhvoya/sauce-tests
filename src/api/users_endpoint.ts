@@ -1,4 +1,5 @@
 import { APIRequestContext, expect } from "@playwright/test";
+import { collectObjects } from "./objects_collection";
 
 export class UsersEndpoint {
     private request: APIRequestContext;
@@ -7,37 +8,37 @@ export class UsersEndpoint {
         this.request = request;
     }
 
+    async createUser(userData) {
+        const createdUser = await this.requestUserCreation(userData);
+        expect(createdUser.ok(), `Not able to create user with data ${userData}, response ${await createdUser.status()}`).toBeTruthy();
+        return await createdUser.json();
+    }
+
+    requestUserCreation(userData) {
+        return this.request.post('/api/users', { data: userData });
+    }
+
     async getUserById(id) {
         const userById = await this.requestUserById(id);
         expect(userById.ok(), `Not able to get user by id ${id}, response ${await userById.status()}`).toBeTruthy();
         return await userById.json();
     }
 
-    async requestUserById(id) {
-        return await this.request.get(`/api/users/${id}`);
+    requestUserById(id) {
+        return this.request.get(`/api/users/${id}`);
     }
 
-    async getTotalNumberOfUsers() {
+    async getTotalUsers() {
         const usersPerPage = await this.requestUsersPerPage(1);
         expect(usersPerPage.ok(), `Not able to get total number of users, response ${await usersPerPage.status()}`).toBeTruthy();
         return (await usersPerPage.json()).total;
     }
 
     async getAllUsers() {
-        const users: any = [];
-
-        for(let i = 1; i <= 1000; i++) {
-            const pageUsersResponse = await this.requestUsersPerPage(i);
-            if(pageUsersResponse.status() !== 200 || (await pageUsersResponse.json()).data.length === 0) {
-                console.log(`No users found on page ${i}`);
-                break;
-            }
-            users.push(...(await pageUsersResponse.json()).data);
-        }
-        return users;
+        return collectObjects(this.requestUsersPerPage.bind(this));
     }
 
-    async requestUsersPerPage(pageNo) {
-        return await this.request.get(`/api/users?page=${pageNo}`);
+    requestUsersPerPage(pageNo) {
+        return this.request.get(`/api/users?page=${pageNo}`);
     }
 }
