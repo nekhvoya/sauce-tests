@@ -10,21 +10,11 @@ test.describe('Sorting', () => {
         await inventoryPage.openAs(User.STANDARD_USER);
     });
 
-    test('Logged in user is able to sort items', async ({ header, inventoryPage }) => {  
-        await inventoryPage.should.haveItems();
-        header.should.haveDefaultSortingOption(Sorting.NAME_AZ.label);
-        await inventoryPage.should.displaySortedItems(Sorting.NAME_AZ);
-
-        await header.setSorting(Sorting.NAME_ZA.value);
-        header.should.haveDefaultSortingOption(Sorting.NAME_ZA.label);
-        await inventoryPage.should.displaySortedItems(Sorting.NAME_ZA);
-
-        await header.setSorting(Sorting.PRICE_LOHI.value);
-        header.should.haveDefaultSortingOption(Sorting.PRICE_LOHI.label);
-        await inventoryPage.should.displaySortedItems(Sorting.PRICE_LOHI);
-
-        await header.setSorting(Sorting.PRICE_HILO.value);
-        header.should.haveDefaultSortingOption(Sorting.PRICE_HILO.label);
-        await inventoryPage.should.displaySortedItems(Sorting.PRICE_HILO);
-    })
-})
+    [ Sorting.NAME_AZ, Sorting.NAME_ZA, Sorting.PRICE_LOHI, Sorting.PRICE_HILO ].forEach(mode => {
+        test(`Logged in user is able to sort items using ${mode.label} mode`, async ({ header, inventoryPage }) => {  
+            await header.setSorting(mode);
+            header.should.haveSortingModeSet(mode);
+            await inventoryPage.should.displaySortedItems(mode);
+        });
+    });
+});

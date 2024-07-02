@@ -26,8 +26,8 @@ export class HeaderComponent {
         await this.componentElement.locator('[data-test=shopping-cart-link]').click();
     }
 
-    async setSorting(value: string) {
-        await this.componentElement.locator('[data-test=product-sort-container]').selectOption({ value : value });
+    async setSorting(mode) {
+        await this.componentElement.locator('[data-test=product-sort-container]').selectOption({ value : mode.value });
     }
     
     private activeSortingOption() {
@@ -35,8 +35,8 @@ export class HeaderComponent {
     }
 
     should = {
-        haveDefaultSortingOption: (option) => {
-            expect(this.activeSortingOption(), "Default sorting option was incorrect").toHaveText(option);
+        haveSortingModeSet: (mode) => {
+            expect(this.activeSortingOption(), "Default sorting option was incorrect").toHaveText(mode.label);
         }
     }
 }
