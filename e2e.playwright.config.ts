@@ -8,7 +8,8 @@ export default defineConfig({
   workers: process.env.CI ? 4 : undefined,
   reporter: [['html', { outputFolder: 'playwright-report/e2e' }]],
   use: {
-    baseURL: 'https://www.saucedemo.com/'
+    baseURL: 'https://www.saucedemo.com/',
+    viewport: { width: 1920, height: 1080 }
   },
   projects: [
     {
