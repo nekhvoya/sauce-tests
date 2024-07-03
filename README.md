@@ -22,8 +22,9 @@ The Playwright specific configurations in the following config file: `playwright
 The project configurations can be found in `packaje.json`. 
 
 ### How to run the tests
-The tests can be run via the following npm command:
-`npx playwright test`.
+There are multiple Playwright config files in this project. To run the tests the appropriate config file need to be specified.
+E.g., e2e tests can be run via the following npm command:
+`npx playwright test --config='e2e.playwright.config.ts'`.
 
 ### CI/CD
 CI/CD is implemented via the Github Actions pipeline. The workflow file can be found under the follwoing path:
@@ -35,7 +36,7 @@ When the run is done, the test report is going to uploaded as an artifact of the
 After each run a Playwright report is generated. The report can be found in the `playwright-report` directory.
 
 ### Assumptions made for this project: 
-1. When defining locators the preference was given to data-test attributes as such attributes are usually added to the elements specifically to use them for the ustomation testing
-2. Credentials used to authenticate with the websit are not sensitive data and for the simplicity were put in the source code unencrypted
-3. WEB UI and API belong to the same application (UI and API tests were put to the same project for simplicity)
+1. When defining locators the preference was given to data-test attributes as such attributes are usually added to the elements specifically to use them for the automation testing.
+2. Credentials used to authenticate with the websit are not sensitive data and for the simplicity were put in the source code unencrypted.
+3. WEB UI and API belong to the same application (UI and API tests were put to the same project for simplicity).
 4. This is a basic set up created as a POC, which is why the automated scenarios could be any, as long as they illustrate the project set up and architecture.
