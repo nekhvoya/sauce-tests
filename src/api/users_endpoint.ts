@@ -1,5 +1,6 @@
 import { APIRequestContext, expect } from "@playwright/test";
 import { collectObjects } from "./objects_collection";
+import { UserData } from "../types/user_data";
 
 export class UsersEndpoint {
     private request: APIRequestContext;
@@ -8,13 +9,13 @@ export class UsersEndpoint {
         this.request = request;
     }
 
-    async createUser(userData) {
+    async createUser(userData: UserData) {
         const createdUser = await this.requestUserCreation(userData);
         expect(createdUser.ok(), `Not able to create user with data ${userData}, response ${await createdUser.status()}`).toBeTruthy();
         return await createdUser.json();
     }
 
-    requestUserCreation(userData) {
+    requestUserCreation(userData: UserData) {
         return this.request.post('/api/users', { data: userData });
     }
 

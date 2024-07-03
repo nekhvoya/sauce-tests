@@ -1,6 +1,7 @@
 import { BrowserContext, Page, expect } from "@playwright/test";
 import { InventoryItemContainer } from "./inventory_item_container";
 import { BasePage } from "./base_page";
+import { UserCreds } from "../types/user_creds";
 
 export class InventoryPage extends BasePage {
   
@@ -8,7 +9,7 @@ export class InventoryPage extends BasePage {
         super(context, page, page.locator('[data-test=inventory-container]'), "Inventory");
     }
 
-    async openAs(user) {
+    async openAs(user: UserCreds) {
         await this.context.addCookies([{ name: 'session-username', value: user.username, domain: 'www.saucedemo.com', path: '/' }]);
         await this.open();
     }

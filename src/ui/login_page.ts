@@ -1,5 +1,6 @@
 import { BrowserContext, Page} from "@playwright/test";
 import { BasePage } from "./base_page";
+import { UserCreds } from "../types/user_creds";
 
 export class LoginPage extends BasePage {
     
@@ -11,6 +12,12 @@ export class LoginPage extends BasePage {
         await this.page.goto('/');
         await this.page.waitForLoadState('domcontentloaded');
         await this.page.waitForLoadState('networkidle');
+    }
+
+    async loginAs(user: UserCreds) {
+        await this.typeUsername(user.username);
+        await this.typePassword(user.password);
+        await this.clickLoginButton();
     }
 
     async typeUsername(username: string) {

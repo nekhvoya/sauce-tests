@@ -1,4 +1,5 @@
 import { Locator, Page, expect } from "@playwright/test";
+import { SortingMode } from "../types/sorting_mode";
 
 export class HeaderComponent {
     private page: Page;
@@ -26,7 +27,7 @@ export class HeaderComponent {
         await this.componentElement.locator('[data-test=shopping-cart-link]').click();
     }
 
-    async setSorting(mode) {
+    async setSorting(mode: SortingMode) {
         await this.componentElement.locator('[data-test=product-sort-container]').selectOption({ value : mode.value });
     }
     
@@ -35,7 +36,7 @@ export class HeaderComponent {
     }
 
     should = {
-        haveSortingModeSet: (mode) => {
+        haveSortingModeSet: (mode: SortingMode) => {
             expect(this.activeSortingOption(), "Default sorting option was incorrect").toHaveText(mode.label);
         }
     }
