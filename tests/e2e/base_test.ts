@@ -42,15 +42,6 @@ export default base.extend<{
   header: async ({ page }, use) => {
     const header = new HeaderComponent(page);
     await use(header);
-  },
+  }
 });
 
-export const globalHooks = () => {
-  base.afterEach(async ({ page }, testInfo) => {
-    if (testInfo.status !== testInfo.expectedStatus) {
-      const screenshotPath = testInfo.outputPath(`${testInfo.testId}.png`);
-      testInfo.attachments.push({ name: 'screenshot', path: screenshotPath, contentType: 'image/png' });
-      await page.screenshot({ path: screenshotPath, timeout: 5000 });
-    }
-  });
-};

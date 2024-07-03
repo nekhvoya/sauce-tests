@@ -1,7 +1,5 @@
-import test, { globalHooks } from './base_test';
+import test from './base_test';
 import { User } from '../../src/constants/users';
-
-globalHooks();
 
 test.describe('Login/logout', () => {
 
@@ -14,5 +12,5 @@ test.describe('Login/logout', () => {
         await inventoryPage.isOpened();
         await header.logout();
         await loginPage.isOpened();
-    })
-})
+    });
+});

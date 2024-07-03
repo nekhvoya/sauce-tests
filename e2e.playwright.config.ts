@@ -9,7 +9,8 @@ export default defineConfig({
   reporter: [['html', { outputFolder: 'playwright-report/e2e' }]],
   use: {
     baseURL: 'https://www.saucedemo.com/',
-    viewport: { width: 1920, height: 1080 }
+    viewport: { width: 1920, height: 1080 },
+    screenshot: 'only-on-failure'
   },
   projects: [
     {
