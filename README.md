@@ -1,27 +1,5 @@
-Assignment: 
-
-Task 1 - Mindset / Planning: Your client is seeking your guidance, take us on your journey and
-thought process.
-Case: Your client is building a new finance system and are still currently supporting a legacy
-system in the meantime. An extensive UI end-to-end & API automation suite exists for the legacy
-system but tests are slowly starting to break as new features are developed. Simultaneously you
-need ensure that features for the new system are thoroughly tested.
-● What challenges can you identify?
-● What’s your plan of action, how are you going to ensure testing/ releases remain
-efficient?
-● How will you strike the balance between automation for the new & legacy system?
-Conditions:
-● This is a new client and your first week.
-● Single tester in the team (you).
-● 2-week sprint.
-● There’s no automation for the new system - tasked to you.
-Note:
-● Please list any assumptions you make for the given scenario.
-
-
-
 # Sauce Demo tests
-This is a demo test automation project demonstrating minimal set up of test automation using Playwright with Typescript.
+This is a demo test automation project demonstrating set up of test automation using Playwright with Typescript.
 The website under test is `https://www.saucedemo.com/`.
 
 ### Prerequisites:
